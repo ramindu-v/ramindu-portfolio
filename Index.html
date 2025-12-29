@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramindu Virochana | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #1b1b41;
+            background: #8a8e95
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #2c3e50;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: rgb(239, 240, 241);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: rgb(246, 247, 249);
+            text-align: center;
+            padding: 150px 20px 80px;
+            margin-top: 50px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            background: rgb(236, 238, 240);
+            color: #2c3e50;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .hero button:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        /* About Section */
+        #about {
+            background: #6c7178;
+        }
+
+        .about-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .about-box p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .about-box h3 {
+            color: #29343c;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .about-box ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .about-box li {
+            margin-bottom: 8px;
+        }
+
+        /* Skills Section */
+        .skill {
+            margin-bottom: 25px;
+        }
+
+        .skill h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .skill-bar {
+            background: #ddd;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+            height: 100%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            font-weight: bold;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: #aaa8bf;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .project h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #3498db;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            background: rgb(29, 29, 55);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #e6ebf0;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background: #2c3e50;
+        }
+
+        .success {
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav a {
+                margin: 5px 10px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Ramindu Virochana</h1>
+        <p>Computer Science Student | Web Developer | AI Enthusiast</p>
+        <button onclick="scrollToContact()">Contact Me</button>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-box">
+            <!-- Your Photo Here -->
+            <div style="text-align: center; margin-bottom: 30px;">
+                <img src="C:\RaXx\NIBM\Web Designning\Group project\Individual\Index\20250531_193018.jpg" alt="Ramindu Virochana"
+     style="width: 200px; height: 200px; border-radius: 50%;
+            object-fit: cover; border: 5px solid #3498db;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+
+            </div>
+            
+            <p>Hello! I'm Ramindu Virochana, a passionate Computer Science student currently pursuing my Diploma in Computer Science with Artificial Intelligence at the National Institute of Business Management (NIBM).</p>
+            
+            <p>I have a strong interest in web development and artificial intelligence. I enjoy building websites and learning new technologies. My goal is to create innovative solutions using programming and technology.</p>
+
+            <h3>Education Background</h3>
+            <ul>
+                <li><strong>Diploma in Computer Science with Artificial Intelligence</strong></li>
+                <li>National Institute of Business Management (NIBM)</li>
+                <li>2025 - Present</li>
+                <li>Specializing in Web Development, Database Management, and AI</li>
+            </ul>
+
+            <h3>My Experience</h3>
+            <ul>
+                <li><strong>Web Development:</strong> Built multiple websites using HTML, CSS, JavaScript, PHP, and MySQL</li>
+                <li><strong>Group Projects:</strong> Worked with teams to develop full-stack web applications</li>
+                <li><strong>Programming:</strong> Created Java applications using Object-Oriented Programming</li>
+                <li><strong>Problem Solving:</strong> Solved coding challenges and built practical projects</li>
+                <li><strong>Learning:</strong> Continuously learning through online courses and hands-on practice</li>
+            </ul>
+
+            <p><strong>My Interests:</strong> Web Development, Artificial Intelligence, Machine Learning, Database Design</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        
+        <div class="skill">
+            <h3>HTML</h3>
+            <div class="skill-bar">
+                <div class="skill-level" data-level="90">90%</div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h3>CSS</h3>
+            <div class="skill-bar">
+                <div class="skill-level" data-level="85">85%</div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h3>JavaScript</h3>
+            <div class="skill-bar">
+                <div class="skill-level" data-level="80">80%</div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h3>Python</h3>
+            <div class="skill-bar">
+                <div class="skill-level" data-level="85">85%</div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h3>Java</h3>
+            <div class="skill-bar">
+                <div class="skill-level" data-level="80">80%</div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h3>PHP & MySQL</h3>
+            <div class="skill-bar">
+                <div class="skill-level" data-level="75">75%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            
+            <div class="project">
+                <h3>🤖 AI Chatbot Assistant</h3>
+                <p>Built an intelligent chatbot using Python that can answer questions and help users. It uses natural language processing to understand and respond to messages.</p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">NLP</span>
+                </div>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+
+            <div class="project">
+                <h3>🛒 E-Commerce Website</h3>
+                <p>Created a fully working online shopping website with product pages, shopping cart, and user login. Users can browse products, add to cart, and checkout.</p>
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                </div>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+
+            <div class="project">
+                <h3>📊 Data Dashboard</h3>
+                <p>Developed a dashboard to visualize data with charts and graphs. Users can upload their data files and see beautiful visualizations to understand their data better.</p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Charts</span>
+                </div>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-form">
+            <form id="contactForm">
+                
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                    <div class="error" id="nameError">Please enter your name (minimum 2 characters)</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Your Email *</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                    <div class="error" id="emailError">Please enter a valid email address</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Your Message *</label>
+                    <textarea id="message" placeholder="Write your message here"></textarea>
+                    <div class="error" id="messageError">Please enter a message (minimum 10 characters)</div>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+                
+                <div class="success" id="successMsg">
+                    ✓ Thank you! Your message has been sent successfully.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Ramindu Virochana. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scroll to contact
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Animate skill bars when scrolling
+        window.addEventListener('scroll', function() {
+            const skillsSection = document.getElementById('skills');
+            const rect = skillsSection.getBoundingClientRect();
+            
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                document.querySelectorAll('.skill-level').forEach(bar => {
+                    const level = bar.getAttribute('data-level');
+                    bar.style.width = level + '%';
+                });
+            }
+        });
+
+        // Form Validation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Hide all errors first
+            document.querySelectorAll('.error').forEach(error => {
+                error.style.display = 'none';
+            });
+            
+            let valid = true;
+            
+            // Check name
+            if (name === '' || name.length < 2) {
+                document.getElementById('nameError').style.display = 'block';
+                valid = false;
+            }
+            
+            // Check email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailPattern.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                valid = false;
+            }
+            
+            // Check message
+            if (message === '' || message.length < 10) {
+                document.getElementById('messageError').style.display = 'block';
+                valid = false;
+            }
+            
+            // If all valid, show success
+            if (valid) {
+                document.getElementById('successMsg').style.display = 'block';
+                document.getElementById('contactForm').reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(function() {
+                    document.getElementById('successMsg').style.display = 'none';
+                }, 5000);
+            }
+        });
+
+        // Animate projects on hover (simple)
+        document.querySelectorAll('.project').forEach(project => {
+            project.style.transition = 'all 0.3s ease';
+        });
+    </script>
+
+</body>
+</html>
